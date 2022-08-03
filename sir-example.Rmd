@@ -19,10 +19,10 @@ library(deSolve)
 init <- c(S = 1-1e-6, I = 1e-6, R = 0.0)
 
 ## beta: infection parameter; gamma: recovery parameter
-parameters <- c(beta = 2.316, gamma = 0.261)
+parameters <- c(beta = 100, gamma = 0.261)
 
 ## Time frame
-times      <- seq(0, 100, by = 0.5)
+times      <- seq(0, 50, by = 0.2)
 ```
 
 ## Create the function with the differential equations:
@@ -62,7 +62,8 @@ approx_long <- approx_df %>%
 ## Plot the output with ggplot:
 ```{r}
 ggplot(data = approx_long, aes(x = time, y = proportion)) +
-  geom_line(aes(color = population))
+  geom_line(aes(color = population)) +
+  theme_light()
 ```
 
 ## End
